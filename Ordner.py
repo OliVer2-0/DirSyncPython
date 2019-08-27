@@ -3,12 +3,12 @@
 import os
 
 class Ordner: 
+    dateiListe = []
     
-
     # Konstruktor für Ordner mit Übergabe des Pfades 
     def __init__(self,pfad):
         self.pfad = pfad
-        self.dateiListe = []
+        
        
 
     # Listet alle Dateien im Verzeichnis auf und fügt sie der Liste hinzu
@@ -18,5 +18,5 @@ class Ordner:
         
         
         
-        
+     
 
