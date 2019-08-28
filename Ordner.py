@@ -3,7 +3,7 @@
 import os
 
 class Ordner: 
-    dateiListe = []
+    __dateiListe = []
     
     # Konstruktor für Ordner mit Übergabe des Pfades 
     def __init__(self,pfad):
