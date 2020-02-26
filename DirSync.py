@@ -48,15 +48,20 @@ zielOrdner.baueListe()
 # Fall 2: Beide Listen gleich lang - 
 # Fall 3: Mehr Dateien im Zielordner - 
 
+# Fall 1:
 if(len(quellOrdner.dateiListe) > len(zielOrdner.dateiListe)):
     sollAnpassen = input("Quellordner (" + pfadQuellOrdner +") enthält mehr Dateien als Zielordner (" + pfadZielOrdner +")."
                         "\nSollen die Ordner angeglichen werden? [J] / [N] ")
     if(sollAnpassen.upper() == 'J'):
-        #
-        #
-        #
+        # Hier Dateien in Zielordner kopieren, wenn diese nicht vorhanden (Nur Prüfung nach Namen)
+        zielOrdner.Sync(quellOrdner)
+        
+        
+
         print ("Hier müsste man jetzt die Dateien hin und herschieben")
 
+# Finale Ausgabe - Kontrolle der Stände
+# FIXME Ausgabe stimmt nicht überein 
 print("Dateien im Quellordner",quellOrdner.dateiListe)
 
 print("Dateien im Zielordner",zielOrdner.dateiListe)
