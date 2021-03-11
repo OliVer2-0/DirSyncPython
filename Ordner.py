@@ -23,12 +23,18 @@ class Ordner:
         # Kontrolle auf Datei.Länge und Datei.EditDate 
         # Aktuell wird nur geschaut, ob Dateien im Ordner sind - falls nicht, werden sie verschoben
         # Sollte die Datei aber im Ordner sein, nur veraltet - würde das nicht bemerkt werden 
+        # Abfrage ob mit Unterordner kopiert werden soll, oder ohne 
+        #FIXME 
+        # Exception bei Unterordnern 
         for datei in ordner.dateiListe:
             if (datei in self.dateiListe):
+                print("*")
                 continue
             else:
-                quellpfad = ordner.pfad + datei
+                quellpfad = ordner.pfad + "/" + datei
                 shutil.copy(quellpfad, self.pfad)
+                print("*")
+        print ("100%")
 
 
 

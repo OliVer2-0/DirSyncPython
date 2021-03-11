@@ -61,10 +61,9 @@ if(len(quellOrdner.dateiListe) > len(zielOrdner.dateiListe)):
         print ("Hier müsste man jetzt die Dateien hin und herschieben")
 
 # Finale Ausgabe - Kontrolle der Stände
-# FIXME Ausgabe stimmt nicht überein 
+# Listen aktualisieren für Ausgabe
+quellOrdner.baueListe()
 print("Dateien im Quellordner",quellOrdner.dateiListe)
-
+zielOrdner.baueListe()
 print("Dateien im Zielordner",zielOrdner.dateiListe)
 
-### Test Kommentar
-### TEST BRANCH KOMMENTAR
