@@ -53,12 +53,26 @@ if(len(quellOrdner.dateiListe) > len(zielOrdner.dateiListe)):
     sollAnpassen = input("Quellordner (" + pfadQuellOrdner +") enthält mehr Dateien als Zielordner (" + pfadZielOrdner +")."
                         "\nSollen die Ordner angeglichen werden? [J] / [N] ")
     if(sollAnpassen.upper() == 'J'):
-        # Hier Dateien in Zielordner kopieren, wenn diese nicht vorhanden (Nur Prüfung nach Namen)
-        zielOrdner.Sync(quellOrdner)
+        # Abfrage auf Unterordner
+        if (quellOrdner.getSubDir()):
+            inklSubDir = input('''\nQuellordner enthält Unterordner
+            Unterordner mit angleichen? [J] / [N]''')
+            if(inklSubDir.upper() == 'J'):
+                # Sync müsste überladen werden mit zusätzlichem Parameter, welcher angibt
+                # ob Unterordner kopiert werden sollen
+                # FIXME 
+                # Unterverzeichnisse werden erkannt - aber momentan noch nicht mitkopiert
+                print("Unterverzeichnisse werden kopiert - TEST")
+            else:
+                # Hier Dateien in Zielordner kopieren, wenn diese nicht vorhanden (Nur Prüfung nach Namen)
+                # Unterordner bleiben unberücksichtigt
+                zielOrdner.Sync(quellOrdner)
+
+        
         
         
 
-        print ("Hier müsste man jetzt die Dateien hin und herschieben")
+        
 
 # Finale Ausgabe - Kontrolle der Stände
 # Listen aktualisieren für Ausgabe

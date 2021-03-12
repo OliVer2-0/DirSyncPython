@@ -23,18 +23,33 @@ class Ordner:
         # Kontrolle auf Datei.Länge und Datei.EditDate 
         # Aktuell wird nur geschaut, ob Dateien im Ordner sind - falls nicht, werden sie verschoben
         # Sollte die Datei aber im Ordner sein, nur veraltet - würde das nicht bemerkt werden 
-        # Abfrage ob mit Unterordner kopiert werden soll, oder ohne 
-        #FIXME 
-        # Exception bei Unterordnern 
+        
         for datei in ordner.dateiListe:
-            if (datei in self.dateiListe):
-                print("*")
-                continue
+            if (os.path.isfile(ordner.pfad + os.path.sep + datei)):
+                if (datei in self.dateiListe):
+                    print("*")
+                    continue
+                else:
+                    quellpfad = ordner.pfad + os.path.sep + datei
+                    shutil.copy(quellpfad, self.pfad)
+                    print("*")
             else:
-                quellpfad = ordner.pfad + "/" + datei
-                shutil.copy(quellpfad, self.pfad)
-                print("*")
+                continue
         print ("100%")
+
+    # Prüfe ob im angebenen Ordner Unterordner vorhanden sind:
+    def getSubDir (self):
+        enthaeltSubDir = False
+        for datei in self.dateiListe:
+            if (os.path.isfile(self.pfad + os.path.sep + datei)):
+                continue
+            elif (os.path.isdir(self.pfad + os.path.sep + datei)):
+                enthaeltSubDir = True
+                break
+        return enthaeltSubDir
+
+
+
 
 
 
